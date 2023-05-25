@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACLabsApplication.HomePage"
+             Title="Home">
+    
+    <Grid RowDefinitions="*, Auto" Margin="15, 15, 5, 15">
+        <StackLayout>
+            <Label 
+            Text="Welcome to AC Labs -WEB"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+                FontFamily="Arial"
+                FontSize="24"
+                FontAttributes="Bold"
+                Margin="0,60,0,0"/>
+
+        </StackLayout>
+
+        <Grid RowDefinitions="*, Auto" Margin="0,-100, 5, 15" IsVisible="false" x:Name="Grid">
+            <ListView  x:Name="MyList" BackgroundColor="Transparent" HeightRequest="400" WidthRequest="300" ItemSelected="OnItemSelected_Clicked">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <Button Text="Connect"
+                x:Name="ConnectButton"
+                IsVisible="true"
+                HeightRequest="50"
+                WidthRequest="150"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                BackgroundColor="Green"
+                Clicked="ConnectButton_Clicked"/>
+
+    </Grid>
+</ContentPage>

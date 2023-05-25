@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+             xmlns:custom_components="clr-namespace:ACLabsApplication"
+             x:Class="ACLabsApplication.SetMotorValuesPage"
+             Title="Set Motor Values">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CustomPickerStyle" TargetType="Picker">
+                <Setter Property="MinimumHeightRequest" Value="10"/>
+                <Setter Property="MinimumWidthRequest" Value="10"/>
+                <Setter Property="HeightRequest" Value="55"/>
+                <Setter Property="Margin" Value="0,0,20,0"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TitleColor" Value="Gray"/>
+                <Setter Property="TextColor" Value="Gray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid RowDefinitions="*, Auto" Margin="10, 15, 5, 15">
+            <StackLayout Orientation="Vertical">
+                <custom_components:SetMotorValuesEntryComponent NameText="TgdMotSpd" UnitText="rpm"/>
+                <custom_components:SetMotorValuesEntryComponent NameText="TgdMotTrq" UnitText="Nm" Margin="0,-90,0,0"/>
+                <custom_components:SetMotorValuesEntryComponent NameText="TgdMotCurr1" UnitText="A" Margin="0,-90,0,0"/>
+                <custom_components:SetMotorValuesEntryComponent NameText="TgdMotCurr2" UnitText="A" Margin="0,-90,0,0"/>
+                <custom_components:SetMotorValuesEntryComponent NameText="TgdPwm" UnitText="  " Margin="0,-90,0,0"/>
+                <StackLayout Margin="0,-90,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="TgtEna" VerticalTextAlignment="Center"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Off" Margin="-200,0,0,0" WidthRequest="100" />
+                        <AbsoluteLayout>
+                            <Switch Grid.Row="0" Grid.Column="2" x:Name="TgtEna" OnColor="#9999FF" ThumbColor="#6600FF" HeightRequest="25" Margin="140,0,0,0"/>
+                        </AbsoluteLayout>
+                        <Label Text="On" Grid.Row="0" Grid.Column="2" Margin="30,0,0,0" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Margin="0,-70,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="TgtDir" VerticalTextAlignment="Center"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Clockwise" Margin="-280,0,0,0" WidthRequest="100" />
+                        <AbsoluteLayout>
+                            <Switch Grid.Row="0" Grid.Column="2" x:Name="TgtDir" OnColor="#9999FF" ThumbColor="#6600FF" HeightRequest="25" Margin="140,0,0,0" />
+                        </AbsoluteLayout>
+                        <Label Text="ClockCW" Grid.Row="0" Grid.Column="2" Margin="30,0,0,0" />
+                    </Grid>
+                </StackLayout>
+                <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Start" Margin="0,-80,0,0" Padding="0">
+                    <Label Text="TgtOpMode" Margin="0,0,80,-10" HeightRequest="50" WidthRequest="100" VerticalTextAlignment="Center" />
+                    <Picker Style="{StaticResource CustomPikerStyle}"
+                            x:Name="TgtOpMode" 
+                            WidthRequest="80"
+                            Margin="-50,0,0,0">
+                        <Picker.Items>
+                                <x:String>reserved</x:String>
+                                <x:String>speed</x:String>
+                                <x:String>torque</x:String>
+                                <x:String>current</x:String>
+                                <x:String>PWM</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </HorizontalStackLayout>
+            </StackLayout>
+            <Button Text="Submit" Clicked="GoToMotorValuesPageButton_Clicked"
+                HeightRequest="50"
+                WidthRequest="150"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+             <Button Text="Back" Clicked="GoToMotorValuesPageButton_Clicked"
+                HeightRequest="50"
+                WidthRequest="150"
+                VerticalOptions="End"
+                HorizontalOptions="Start"/>
+    </Grid>
+    </ScrollView>
+</ContentPage>

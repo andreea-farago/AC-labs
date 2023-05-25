@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom_components="clr-namespace:ACLabsApplication"
+             x:Class="ACLabsApplication.MotorValuesPage"
+             Title="Motor Values">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid RowDefinitions="*, Auto" Margin="10, 15, 5, 15">
+            <StackLayout Orientation="Vertical">
+                <custom_components:MotorValuesEntyComponent NumeText="TgdMotSpd" UnitateText="rpm" Grid.Row="0" Grid.Column="1"/>
+                <Button Grid.Row="0" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                <custom_components:MotorValuesEntyComponent NumeText="TgdMotTrq" UnitateText="Nm" Grid.Row="0" Grid.Column="1" />
+                <Button Grid.Row="0" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                <custom_components:MotorValuesEntyComponent NumeText="TgdMotCurr1" UnitateText="A" Grid.Row="2" Grid.Column="1"/>
+                <Button Grid.Row="2" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                <custom_components:MotorValuesEntyComponent NumeText="TgdMotCurr2" UnitateText="A" Grid.Row="3" Grid.Column="1"/>
+                <Button Grid.Row="3" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                <custom_components:MotorValuesEntyComponent NumeText="DCBusU" UnitateText="V" Grid.Row="4" Grid.Column="1" />
+                <Button Grid.Row="4" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                <custom_components:MotorValuesEntyComponent NumeText="StsOpMode" UnitateText="  " Grid.Row="5" Grid.Column="1"/>
+                <Button Grid.Row="5" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                <custom_components:MotorValuesEntyComponent NumeText="FailSts" UnitateText="  " Grid.Row="6" Grid.Column="1"/>
+                    <Button Grid.Row="6" Grid.Column="2" Text="Info" BackgroundColor="#6699FF" HeightRequest="40" WidthRequest="60" Margin="250,-150,0,0" Clicked="InfoButton_Clicked"/>
+                
+            </StackLayout>
+            <Button Text="Next" Clicked="GoToSetMotorValuesPageButton_Clicked"
+                HeightRequest="50"
+                WidthRequest="150"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+        <Button Text="Back" Clicked="GoToHomePageButton_Clicked"
+                    HeightRequest="50"
+                    WidthRequest="150"
+                    VerticalOptions="End"
+                    HorizontalOptions="Start" />
+    </Grid>
+    </ScrollView>
+</ContentPage>
